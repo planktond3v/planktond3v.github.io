@@ -1,0 +1,89 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  .github/workflows/deploy.yml
+#  Automatically builds and deploys the portfolio to GitHub Pages on every push
+#  to the main branch.
+#
+#  Prerequisites in your GitHub repo settings:
+#  1. Settings → Pages → Source → "GitHub Actions"
+#  2. Settings → Environments → github-pages (auto-created by this workflow)
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: 🚀 Deploy Portfolio to GitHub Pages
+
+on:
+  # ── Trigger on pushes to main ────────────────────────────────────────────
+  push:
+    branches:
+      - main
+
+  # ── Allow manual trigger from the Actions tab ─────────────────────────────
+  workflow_dispatch:
+
+# ── Permissions required by peaceiris/actions-gh-pages ──────────────────────
+permissions:
+  contents:      write
+  pages:         write
+  id-token:      write
+  deployments:   write
+
+# ── Cancel previous runs on new push ────────────────────────────────────────
+concurrency:
+  group:              "pages"
+  cancel-in-progress: true
+
+jobs:
+  # ──────────────────────────────────────────────────────────────────────────
+  build:
+    name: 🏗️ Build
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Setup Node.js LTS
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      # 3. Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. Build Next.js static export
+      #    NEXT_PUBLIC_BASE_PATH must match your GitHub repo name (e.g. /portfolio-web3-ai)
+      #    If using a custom domain (username.github.io), leave it empty: ""
+      - name: Build & export
+        run: npm run build
+        env:
+          NEXT_PUBLIC_BASE_PATH: /portfolio-web3-ai
+          NODE_ENV: production
+
+      # 5. Add .nojekyll so GitHub Pages serves _next/ folder correctly
+      - name: Add .nojekyll
+        run: touch ./out/.nojekyll
+
+      # 6. Upload artifact for the deploy job
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+  # ──────────────────────────────────────────────────────────────────────────
+  deploy:
+    name: 🌐 Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+
+    # Required environment for Pages deployments
+    environment:
+      name: github-pages
+      url:  ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id:   deployment
+        uses: actions/deploy-pages@v4

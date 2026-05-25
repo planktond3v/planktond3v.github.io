@@ -1,0 +1,197 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   globals.css  —  Global styles, CSS variables, and custom animations
+   ─────────────────────────────────────────────────────────────────────────── */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── CSS Custom Properties (design tokens) ──────────────────────────────────── */
+:root {
+  --color-bg:           #0a0a0f;
+  --color-bg-card:      rgba(13, 13, 26, 0.8);
+  --color-cyan:         #00e5ff;
+  --color-purple:       #7b2fff;
+  --color-pink:         #ff00aa;
+  --color-green:        #00ff88;
+  --color-border:       rgba(0, 229, 255, 0.15);
+  --color-border-hover: rgba(0, 229, 255, 0.4);
+  --glow-cyan:          0 0 20px rgba(0, 229, 255, 0.4);
+  --glow-purple:        0 0 20px rgba(123, 47, 255, 0.4);
+  --glow-pink:          0 0 20px rgba(255, 0, 170, 0.4);
+}
+
+/* ── Base reset & body ───────────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+  padding:    0;
+  margin:     0;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Custom scrollbar track colour */
+  scrollbar-color: var(--color-cyan) var(--color-bg);
+  scrollbar-width: thin;
+}
+
+body {
+  background-color: var(--color-bg);
+  color:            #e2e8f0;
+  font-family:      'Inter', system-ui, sans-serif;
+  overflow-x:       hidden;
+  /* Subtle background dot grid */
+  background-image:
+    radial-gradient(rgba(0, 229, 255, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ── Custom scrollbar (Chrome / Edge) ───────────────────────────────────────── */
+::-webkit-scrollbar             { width: 6px; }
+::-webkit-scrollbar-track       { background: var(--color-bg); }
+::-webkit-scrollbar-thumb       { background: var(--color-cyan); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-purple); }
+
+/* ── Text selection ─────────────────────────────────────────────────────────── */
+::selection {
+  background: rgba(0, 229, 255, 0.25);
+  color:      #ffffff;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Custom keyframe animations
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* Neon glow pulse */
+@keyframes neonGlow {
+  0%, 100% { text-shadow: 0 0 8px var(--color-cyan), 0 0 20px var(--color-cyan); }
+  50%       { text-shadow: 0 0 16px var(--color-cyan), 0 0 40px var(--color-cyan), 0 0 80px var(--color-purple); }
+}
+
+/* Scanning horizontal line */
+@keyframes scanLine {
+  0%   { transform: translateY(-100vh); opacity: 0.4; }
+  100% { transform: translateY(100vh);  opacity: 0; }
+}
+
+/* Matrix rain drop */
+@keyframes matrixDrop {
+  0%   { transform: translateY(-20px); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+/* Gradient border animation */
+@keyframes borderGradient {
+  0%   { border-image-source: linear-gradient(0deg,   var(--color-cyan), var(--color-purple)); }
+  25%  { border-image-source: linear-gradient(90deg,  var(--color-cyan), var(--color-purple)); }
+  50%  { border-image-source: linear-gradient(180deg, var(--color-cyan), var(--color-purple)); }
+  75%  { border-image-source: linear-gradient(270deg, var(--color-cyan), var(--color-purple)); }
+  100% { border-image-source: linear-gradient(360deg, var(--color-cyan), var(--color-purple)); }
+}
+
+/* Breathing glow for cards */
+@keyframes breatheGlow {
+  0%, 100% { box-shadow: 0 0 10px rgba(0,229,255,0.1), inset 0 0 10px rgba(0,229,255,0.05); }
+  50%       { box-shadow: 0 0 25px rgba(0,229,255,0.25), inset 0 0 20px rgba(0,229,255,0.1); }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Reusable utility classes  (@layer components keeps them purge-safe)
+   ─────────────────────────────────────────────────────────────────────────── */
+
+@layer components {
+
+  /* Glassmorphism card base */
+  .glass-card {
+    @apply bg-white/[0.04] backdrop-blur-md border border-white/10 rounded-xl;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .glass-card:hover {
+    border-color: var(--color-border-hover);
+    box-shadow:   var(--glow-cyan);
+  }
+
+  /* Neon text glow */
+  .neon-cyan   { color: var(--color-cyan);   text-shadow: 0 0 10px var(--color-cyan); }
+  .neon-purple { color: var(--color-purple); text-shadow: 0 0 10px var(--color-purple); }
+  .neon-pink   { color: var(--color-pink);   text-shadow: 0 0 10px var(--color-pink); }
+
+  /* Futuristic button */
+  .btn-cyber {
+    @apply relative inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium
+           border transition-all duration-300 overflow-hidden;
+  }
+  .btn-cyber-primary {
+    @apply btn-cyber bg-cyan-500/10 border-cyan-500/50 text-cyan-400
+           hover:bg-cyan-500/20 hover:border-cyan-400 hover:shadow-[0_0_20px_rgba(0,229,255,0.35)];
+  }
+  .btn-cyber-secondary {
+    @apply btn-cyber bg-purple-500/10 border-purple-500/50 text-purple-400
+           hover:bg-purple-500/20 hover:border-purple-400 hover:shadow-[0_0_20px_rgba(123,47,255,0.35)];
+  }
+  .btn-cyber-ghost {
+    @apply btn-cyber bg-white/5 border-white/15 text-gray-300
+           hover:bg-white/10 hover:border-white/30;
+  }
+
+  /* Section container */
+  .section-container {
+    @apply relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24;
+  }
+
+  /* Gradient text */
+  .gradient-text-cyan {
+    @apply bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent;
+  }
+  .gradient-text-purple {
+    @apply bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent;
+  }
+  .gradient-text-full {
+    @apply bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent;
+  }
+
+  /* Animated border shimmer */
+  .shimmer-border {
+    position:   relative;
+    overflow:   hidden;
+  }
+  .shimmer-border::before {
+    content:    '';
+    position:   absolute;
+    inset:      0;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(0,229,255,0.15) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation:  shimmer 2.5s linear infinite;
+    pointer-events: none;
+  }
+
+  /* Tech tag / badge */
+  .tech-tag {
+    @apply inline-flex items-center px-2.5 py-1 rounded-md text-xs font-mono
+           bg-cyan-500/10 border border-cyan-500/20 text-cyan-300
+           transition-all duration-200 hover:bg-cyan-500/20 hover:border-cyan-400/40;
+  }
+}
+
+/* ── Orbitron font loaded via Google Fonts in layout.tsx ─────────────────────── */
+/* Utility to apply it */
+.font-orbitron { font-family: 'Orbitron', monospace !important; }
+
+/* ── Smooth scroll offset for fixed navbar ───────────────────────────────────── */
+[id] {
+  scroll-margin-top: 80px;
+}
+
+/* ── Remove default focus ring; add branded one ─────────────────────────────── */
+:focus-visible {
+  outline:        2px solid var(--color-cyan);
+  outline-offset: 3px;
+  border-radius:  4px;
+}
