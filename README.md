@@ -1,10 +1,8 @@
-<<<<<<< HEAD
 # ⚡ PlanktonDev — Web3 × AI Portfolio
 
 > A **futuristic DevSecOps portfolio** built with Next.js 14, TailwindCSS, and Framer Motion.
 > Cyberpunk glassmorphism aesthetic with neon accents, particle system, and orbital tech visualisation.
 
-[![Deploy to GitHub Pages](https://github.com/planktondev/portfolio-web3-ai/actions/workflows/deploy.yml/badge.svg)](https://github.com/planktondev/portfolio-web3-ai/actions/workflows/deploy.yml)
 ![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3-38bdf8?logo=tailwindcss)
