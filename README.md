@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ⚡ PlanktonDev — Web3 × AI Portfolio
 
 > A **futuristic DevSecOps portfolio** built with Next.js 14, TailwindCSS, and Framer Motion.
