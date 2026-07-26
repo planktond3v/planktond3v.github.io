@@ -38,7 +38,7 @@ export default function Footer() {
             </div>
             <div>
               <p className="font-orbitron font-bold text-sm bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-                PlanktonDev
+                L4Code
               </p>
               <p className="text-xs text-gray-500 font-mono">
                 &gt; Building the Future_
@@ -61,7 +61,7 @@ export default function Footer() {
 
           {/* ── Copyright ────────────────────────────────────────────────────── */}
           <p className="flex items-center gap-1.5 text-xs text-gray-600 font-mono">
-            © {currentYear} PlanktonDev · Built with
+            © {currentYear} L4Code · Built with
             <Heart size={10} className="text-pink-500 fill-pink-500" />
             & Next.js
           </p>

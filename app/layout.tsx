@@ -12,8 +12,8 @@ import './globals.css';
 // Next.js uses this to populate <head> tags automatically.
 export const metadata: Metadata = {
   title: {
-    default:  'PlanktonDev — DevSecOps & Cloud Engineer',
-    template: '%s | PlanktonDev',
+    default:  'L4Code — DevSecOps & Cloud Engineer',
+    template: '%s | L4Code',
   },
   description:
     'Senior DevSecOps & Cloud Engineer specialising in Kubernetes, Terraform, CI/CD, Blockchain Infrastructure, and AI workload deployment.',
@@ -22,22 +22,22 @@ export const metadata: Metadata = {
     'AWS', 'GCP', 'Azure', 'Blockchain', 'Web3', 'AI Infrastructure',
     'GitHub Actions', 'ArgoCD', 'Prometheus', 'Grafana', 'Portfolio',
   ],
-  authors:  [{ name: 'PlanktonDev', url: 'https://github.com/planktondev' }],
-  creator:  'PlanktonDev',
-  metadataBase: new URL('https://planktondev.github.io'),
+  authors:  [{ name: 'L4Code', url: 'https://github.com/L4Code' }],
+  creator:  'L4Code',
+  metadataBase: new URL('https://L4Code.github.io'),
   openGraph: {
     type:        'website',
     locale:      'en_US',
-    url:         'https://planktondev.github.io/portfolio-web3-ai',
-    title:       'PlanktonDev — DevSecOps & Cloud Engineer',
+    url:         'https://L4Code.github.io/portfolio-web3-ai',
+    title:       'L4Code — DevSecOps & Cloud Engineer',
     description: 'Building secure, scalable, cloud-native infrastructure. Kubernetes, Terraform, Blockchain & AI.',
-    siteName:    'PlanktonDev Portfolio',
+    siteName:    'L4Code Portfolio',
   },
   twitter: {
     card:        'summary_large_image',
-    title:       'PlanktonDev — DevSecOps & Cloud Engineer',
+    title:       'L4Code — DevSecOps & Cloud Engineer',
     description: 'Building secure, scalable, cloud-native infrastructure.',
-    creator:     '@planktondev',
+    creator:     '@L4Code',
   },
   robots: {
     index:  true,

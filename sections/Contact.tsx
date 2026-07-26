@@ -17,7 +17,7 @@ const channels = [
   {
     icon:     Github,
     label:    'GitHub',
-    handle:   '@planktondev',
+    handle:   '@l4code',
     href:     personalInfo.github,
     color:    'hover:border-gray-400/40 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]',
     iconColor: 'text-gray-300',
@@ -25,7 +25,7 @@ const channels = [
   {
     icon:     Linkedin,
     label:    'LinkedIn',
-    handle:   'in/planktondev',
+    handle:   'in/l4code',
     href:     personalInfo.linkedin,
     color:    'hover:border-blue-400/40 hover:shadow-[0_0_15px_rgba(59,130,246,0.25)]',
     iconColor: 'text-blue-400',
@@ -33,7 +33,7 @@ const channels = [
   {
     icon:     Send,
     label:    'Telegram',
-    handle:   't.me/planktondev',
+    handle:   't.me/l4code',
     href:     personalInfo.telegram,
     color:    'hover:border-sky-400/40 hover:shadow-[0_0_15px_rgba(56,189,248,0.25)]',
     iconColor: 'text-sky-400',
@@ -57,7 +57,7 @@ const channels = [
   {
     icon:     Twitter,
     label:    'Twitter / X',
-    handle:   '@planktondev',
+    handle:   '@l4code',
     href:     personalInfo.twitter,
     color:    'hover:border-sky-300/40 hover:shadow-[0_0_15px_rgba(125,211,252,0.2)]',
     iconColor: 'text-sky-300',
@@ -235,7 +235,7 @@ export default function Contact() {
             <span className="ml-2 text-xs text-gray-600">terminal</span>
           </div>
           <p className="text-gray-500">
-            <span className="text-green-400">planktondev</span>
+            <span className="text-green-400">l4code</span>
             <span className="text-cyan-400">@infra</span>
             <span className="text-gray-600">:~$ </span>
             <span className="text-gray-300">echo "Let&apos;s build something great together"</span>
@@ -244,7 +244,7 @@ export default function Contact() {
             &gt; Let&apos;s build something great together
           </p>
           <p className="text-gray-500 mt-2">
-            <span className="text-green-400">planktondev</span>
+            <span className="text-green-400">l4code</span>
             <span className="text-cyan-400">@infra</span>
             <span className="text-gray-600">:~$ </span>
             <span className="animate-blink text-cyan-400">█</span>

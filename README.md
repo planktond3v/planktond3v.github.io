@@ -1,4 +1,4 @@
-# ⚡ PlanktonDev — Web3 × AI Portfolio
+# ⚡ L4Code — Web3 × AI Portfolio
 
 > A **futuristic DevSecOps portfolio** built with Next.js 14, TailwindCSS, and Framer Motion.
 > Cyberpunk glassmorphism aesthetic with neon accents, particle system, and orbital tech visualisation.
@@ -110,7 +110,7 @@ export const certifications = [...];  // cert cards
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/planktondev/portfolio-web3-ai.git
+git clone https://github.com/L4Code/portfolio-web3-ai.git
 cd portfolio-web3-ai
 
 # 2. Install dependencies
@@ -268,7 +268,7 @@ export default function YourSection() {
 
 ## 📄 License
 
-MIT © 2026 PlanktonDev
+MIT © 2026 L4Code
 
 ---
 

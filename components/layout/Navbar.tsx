@@ -98,7 +98,7 @@ export default function Navbar() {
               group-hover:from-cyan-300 group-hover:to-purple-300
               transition-all duration-300
             ">
-              PlanktonDev
+              L4Code
             </span>
           </a>
 

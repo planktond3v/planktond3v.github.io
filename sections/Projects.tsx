@@ -178,7 +178,7 @@ export default function Projects() {
           className="mt-14 text-center"
         >
           <a
-            href="https://github.com/planktondev"
+            href="https://github.com/l4code"
             target="_blank"
             rel="noopener noreferrer"
             className="
